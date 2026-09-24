@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-End Speed Round</title>
+
+  <!-- Fonts: JetBrains Mono for the "code editor" look, Inter for readable body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <div class="app">
+    <p class="eyebrow">// front-end speed round</p>
+
+    <div class="editor">
+
+      <!-- Fake "code editor" title bar, just for looks -->
+      <div class="titlebar">
+        <div class="dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="tab">
+          <span class="tab-dot" id="tabDot"></span>
+          <span id="tabName">quiz.html</span>
+        </div>
+      </div>
+
+      <!-- ============ SCREEN 1: Start ============ -->
+      <div id="startView" class="pane">
+        <h1>Front-End Speed Round</h1>
+        <p>
+          10 questions on HTML, CSS &amp; JavaScript.
+          Use Previous / Next to move around and change any answer before you finish.
+        </p>
+        <div class="rules">
+          <div><b>10</b>questions</div>
+          <div><b>30s</b>per-Q guide</div>
+          <div><b>5:00</b>total</div>
+        </div>
+        <button class="cta-btn" id="startBtn">▶ start quiz</button>
+      </div>
+
+      <!-- ============ SCREEN 2: Quiz ============ -->
+      <div id="quizView" class="pane" hidden>
+
+        <!-- Total 5-minute countdown -->
+        <div class="total-timer-row">
+          <span id="totalTimeText">05:00</span>
+          <span id="totalTimeLabel">total time left</span>
+        </div>
+        <div class="total-track">
+          <div class="total-fill" id="totalFill"></div>
+        </div>
+
+        <div class="steps" id="steps"></div>
+
+        <div class="qa-row">
+          <div class="qa-main">
+            <p class="comment" id="questionComment"></p>
+            <p class="question-text" id="questionText"></p>
+            <div class="options" id="options"></div>
+          </div>
+
+        
+          <div class="qa-timer">
+            <svg viewBox="0 0 80 80" class="ring-svg">
+              <circle class="ring-bg" cx="40" cy="40" r="34"></circle>
+              <circle class="ring-fg" id="ringFg" cx="40" cy="40" r="34"></circle>
+            </svg>
+            <span class="ring-number" id="ringNumber">30</span>
+            <span class="ring-caption">sec on this Q</span>
+          </div>
+        </div>
+
+        <div class="nav-row">
+          <button class="nav-btn" id="prevBtn">← previous</button>
+          <button class="nav-btn primary" id="nextBtn">next →</button>
+        </div>
+      </div>
+
+      
+      <div id="resultsView" class="pane" hidden>
+        <p class="console-line">quiz.submit()</p>
+        <div class="score-big" id="scoreBig"></div>
+        <div class="score-sub" id="scoreSub"></div>
+        <button class="restart-btn" id="restartBtn">↻ run again</button>
+      </div>
+
+      <div class="statusbar" id="statusbar" hidden>
+        <span id="statusProgress"></span>
+        <span id="statusAnswered">answered: 0/10</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
